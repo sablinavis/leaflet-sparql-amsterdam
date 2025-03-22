@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Map met de Amsterdamse Straten</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+
+    <!-- external CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+
+    <style>
+        #map {
+            width: 100%;
+            height: 600px;
+            margin-bottom: 20px;
+        }
+        #collection {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .street-tile {
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            background-color: #f9f9f9;
+        }
+        .street-tile h4 {
+            margin: 0 0 5px;
+        }
+        .street-tile p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Map Container -->
+    <div id="map"></div>
+
+    <!-- Container verzamelde punten -->
+    <div id="collection"></div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+    <!-- leaflet-geolet -->
+    <script src="geolet.js"></script>
+
+    <!-- external JavaScript -->
+    <script src="app.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Assuming `map` is initialized in `app.js`
+            if (typeof map !== 'undefined') {
+              
+                L.geolet({
+                    position: 'bottomleft'
+                }).addTo(map);
+            } else {
+                console.error('Map is not initialized. Check app.js for initialization.');
+            }
+        });
+    </script>
+
+</body>
+</html>
